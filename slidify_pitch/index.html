@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Mortgage Calculator</title>
+	<meta name="description" content="Mortgage Calculator">
+	<meta name="author" content="Andrej Mihálik">
+	<meta name="generator" content="slidify" />
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/html5slides/default/styles.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />  <link rel="stylesheet" href = "libraries/widgets/quiz/css/demo.css">
+<link rel="stylesheet" href = "assets/css/ribbons.css">
+  
+</head>
+<body style='display: none'>
+	<section class='slides layout-regular template-regular'>
+     <article class="class" id="mainslide" style="background:;">
+  <h3>Mortgage Calculator</h3>
+  <h1>Mortgage Calculator</h1>
+
+<h2>(Reproducible Pitch Presentation)</h2>
+
+<h2>by Andrej Mihálik</h2>
+
+</article>
+
+<article class="testing" id="secondslide" style="background:;">
+  <h3>Slide 2</h3>
+  <p>Imagine you have a mortgage loan contract for a property of a value of \(€ \ 100\ 000\) and a down payment of \(€\ 20\ 000\) at a \(5\%\) interest rate.</p>
+
+<p>You are offered two payment plans, one in which you pay regular monthly payment of \(€\ 904.21\) and the other with monthly payments of \(€\ 925.77\).</p>
+
+<p>If the conditions of your contract remain unchanged, if you choose the lower monthly rates, how much longer will be the duration of your mortgage?</p>
+
+</article>
+
+<article class="testing" id="secondslide" style="background:;">
+  <h3>Slide 2</h3>
+  <p>This slight increase of your monthly payments at about \(€\ 21.56\) per month would save you <strong>4 years</strong>.</p>
+
+<p>To make informed decisions about your mortgage you need the maths. The <strong>mortgage calculator</strong> will do it for you <strong>for free</strong>!</p>
+
+<p>It allows you to:</p>
+
+<ul>
+<li><strong>find</strong> the mortgage <strong>plan best suited</strong> to your long-term interest</li>
+<li><strong>compare</strong> mortgage plans with different conditions</li>
+<li>simulate the development of your mortgage under different scenarios, so that it is easier for you to <strong>consider the potential risks</strong></li>
+</ul>
+
+</article>
+
+<article class="testing" id="thirdslide" style="background:;">
+  <h3>How it works?</h3>
+  <p>You enter all the basic data of your mortgage contract into this simple form and the rest is calculated for you automatically:</p>
+
+<p><img src="example.jpg" alt=""></p>
+
+</article>
+
+<article class="testing" id="thirdslide" style="background:;">
+  <h3>A Sample Calculation</h3>
+  <p>Let me now present you the calculation for monthly payments used in Mortgage Calculator in R:</p>
+
+<pre><code class="r">property.value &lt;- 100000
+downpayment &lt;- 20000
+interest.rate &lt;- 0.05
+duration &lt;- 20
+
+mortgage &lt;- property.value - downpayment  
+interest.payment &lt;- mortgage * ((1 + interest.rate/12)^(12*duration)-1)
+payment &lt;- (mortgage + interest.payment)/(duration*12)
+
+print(payment)
+</code></pre>
+
+<pre><code>## [1] 904.2134
+</code></pre>
+
+</article>
+
+  </section>
+</body>
+  <!-- LOAD JAVASCRIPTS  -->
+	<script src='libraries/frameworks/html5slides/default/slides.js'></script>
+	<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+	<script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+	    tex2jax: {
+	      inlineMath: [['$','$'], ['\\(','\\)']],
+	      processEscapes: true
+	    }
+	  });
+	</script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script> -->
+	<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+	</html>
